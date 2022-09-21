@@ -1,3 +1,3 @@
-# Akbank Web3 Practicium
+# Akbank Web3 Practicum
 
-## Akbank Web3 Practicium Notes
+## Akbank Web3 Practicum Notes
