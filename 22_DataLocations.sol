@@ -8,14 +8,17 @@ pragma solidity ^0.8.7;
 // calldata is like memory except it can only be used for function inputs
 contract DataLocations {
     struct MyStruct {
-        uint foo;
+        uint256 foo;
         string text;
     }
 
     // mapping to MyStruct type
     mapping(address => MyStruct) public myStructs;
 
-    function examples(uint[] calldata y, string calldata s) external returns (uint[] memory) {
+    function examples(uint256[] calldata y, string calldata s)
+        external
+        returns (uint256[] memory)
+    {
         myStructs[msg.sender] = MyStruct({foo: 123, text: "bar"});
 
         MyStruct storage myStruct = myStructs[msg.sender];
@@ -28,7 +31,7 @@ contract DataLocations {
 
         // we can not declare dynamic array for memory variable
         // we should define length of the array
-        uint[] memory memArr = new uint[](3);
+        uint256[] memory memArr = new uint256[](3);
         memArr[1] = 234;
         return memArr;
     }
@@ -41,12 +44,12 @@ contract DataLocations {
     // memory is copies each element in the uint array
     // and creating a new uint array inside the memory and
     // pass it onto here
-    function _internal(uint[] calldata y) private {
-        uint x = y[0];
+    function _internal(uint256[] calldata y) private {
+        uint256 x = y[0];
     }
 
     // my custom function to check strcut by address
-    function getArray(address owner) external view returns(MyStruct memory){
+    function getArray(address owner) external view returns (MyStruct memory) {
         return myStructs[owner];
     }
 }

@@ -6,12 +6,12 @@ pragma solidity ^0.8.7;
 
 contract FunctionModifier {
     bool public paused;
-    uint public count;
+    uint256 public count;
 
     function setPause(bool _paused) external {
         paused = _paused;
     }
-    
+
     // modifier like a middleware
     // can be used for multiple function
     modifier whenNotPaused() {
@@ -24,19 +24,20 @@ contract FunctionModifier {
     function inc() external whenNotPaused {
         count += 1;
     }
-    
+
     function dec() external whenNotPaused {
         count -= 1;
     }
 
-    modifier cap(uint _x) {
+    modifier cap(uint256 _x) {
         require(_x < 100, "x >= 100");
         // '_' means execute rest of the code
         _;
     }
+
     // 2 modifier on a function
     // it looks like a middleware
-    function incBy (uint _x) external whenNotPaused cap(_x) {
+    function incBy(uint256 _x) external whenNotPaused cap(_x) {
         count += _x;
     }
 
@@ -47,7 +48,7 @@ contract FunctionModifier {
         // code stops here and
         // continues after the main function
         count *= 2;
-        
+
         _; // count +1
         _; // count +1
     }

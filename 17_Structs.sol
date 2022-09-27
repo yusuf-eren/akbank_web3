@@ -4,7 +4,7 @@ pragma solidity ^0.8.7;
 contract Structs {
     struct Car {
         string model;
-        uint year;
+        uint256 year;
         address owner;
     }
 
@@ -14,7 +14,11 @@ contract Structs {
 
     function examples() external {
         Car memory toyota = Car("Toyota", 1990, msg.sender);
-        Car memory lambo = Car({model: "Lamborghini", year: 1980, owner: msg.sender});
+        Car memory lambo = Car({
+            model: "Lamborghini",
+            year: 1980,
+            owner: msg.sender
+        });
         Car memory tesla;
         tesla.model = "Tesla";
         tesla.year = 2010;
@@ -24,7 +28,7 @@ contract Structs {
         cars.push(lambo);
         cars.push(tesla);
 
-        cars.push(Car("Ferrari",2020, msg.sender));
+        cars.push(Car("Ferrari", 2020, msg.sender));
 
         // memory is a temporary variable
         // storage affects the storage

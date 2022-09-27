@@ -19,14 +19,14 @@ contract Enum {
 
     Order[] public orders;
 
-    function get1() view external returns (Status) {
+    function get1() external view returns (Status) {
         return status1;
     }
 
     function set1(Status _statusx) external {
         status1 = _statusx;
     }
-    
+
     function ship() external {
         status1 = Status.Shipped;
     }

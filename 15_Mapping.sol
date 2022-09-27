@@ -10,15 +10,15 @@ pragma solidity ^0.8.7;
 
 contract Mapping {
     // address1 = 0, address2 = 1, address3 = 2...
-    mapping(address => uint) public balances;
+    mapping(address => uint256) public balances;
 
-    // 
+    //
     mapping(address => mapping(address => bool)) public isFriend;
 
-    function example() external{
+    function example() external {
         balances[msg.sender] = 123;
-        uint bal = balances[msg.sender];
-        uint bal2 = balances[address(1)]; // 0
+        uint256 bal = balances[msg.sender];
+        uint256 bal2 = balances[address(1)]; // 0
 
         balances[msg.sender] += 456; // 123 + 456 = 579
 

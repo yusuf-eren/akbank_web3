@@ -2,23 +2,25 @@
 pragma solidity ^0.8.7;
 
 contract ViewAndPureFunctions {
-    uint public num;
+    uint256 public num;
 
-    function viewFunc() external view returns (uint) {
+    function viewFunc() external view returns (uint256) {
         return num;
     }
-    function pureFunc() external pure returns (uint) {
+
+    function pureFunc() external pure returns (uint256) {
         return 1;
     }
 
     // this is a view function because it takes a state variable
     // - (uint public num) -
-    function addToNum(uint x) external view returns (uint) {
+    function addToNum(uint256 x) external view returns (uint256) {
         return num + x;
     }
+
     // this is a pure function because it doesn't take any state variable
     // - (uint public num) -
-    function add(uint x, uint y) external pure returns (uint) {
+    function add(uint256 x, uint256 y) external pure returns (uint256) {
         return x + y;
     }
 }

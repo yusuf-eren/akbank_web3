@@ -2,12 +2,12 @@
 pragma solidity ^0.8.13;
 
 contract LocalVariables {
-    uint public i;
+    uint256 public i;
     bool public b;
     address public myAddress;
 
     function doSomething() external {
-        uint x = 456;
+        uint256 x = 456;
         bool f = false;
         x += 456;
         f = true;

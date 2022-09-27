@@ -2,7 +2,6 @@
 pragma solidity ^0.8.7;
 
 contract Immutable {
-
     // State variables can be declared as constant or immutable.
     // In both cases, the variables
     // cannot be modified after the contract has been constructed.
@@ -14,7 +13,8 @@ contract Immutable {
     //     owner = msg.sender;
     // }
 
-    uint public x;
+    uint256 public x;
+
     function fiuuu() external {
         require(msg.sender == owner);
         x += 1;
